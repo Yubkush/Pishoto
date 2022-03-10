@@ -3,23 +3,24 @@ from discord.ext import commands
 import random
 
 class League(commands.Cog):
+    """
+    League realted commands
+    """
     def __init__(self, bot):
         self.bot = bot
 
-    # Send mika's 0/19 game
-    @commands.command()
+
+    @commands.command(help="Send mika's 0/19 game")
     async def oops(self, ctx):
         await ctx.send(file=discord.File("oops.png"))
 
 
-    # Send Yasuo syndrome
-    @commands.command()
+    @commands.command(help="Send Yasuo syndrome")
     async def nadav(self, ctx):
         await ctx.send(file=discord.File("yasuo.png"))
 
 
-    # Distribute roles for 5v5
-    @commands.command()
+    @commands.command(help="Distribute roles for 5v5")
     async def minyan(self, ctx):
         voice_channel = discord.utils.get(ctx.guild.channels, name="General")
         members = [member.name for member in voice_channel.members]
@@ -54,6 +55,6 @@ class League(commands.Cog):
             await ctx.send("Not the right amount of people for a 5v5")
 
 
-    @commands.command()
+    @commands.command(help="Returns link to champion's popular build at a given role")
     async def build(self, ctx, champ, role=""):
         await ctx.send(f"https://eune.op.gg/champion/{champ}/statistics/{role}")
