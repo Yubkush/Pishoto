@@ -1,8 +1,9 @@
-from email.policy import default
-import league_cog
-import general_cog
 import discord
 import os
+
+import league_cog
+import general_cog
+
 from dotenv import load_dotenv
 from discord.ext import commands
 
